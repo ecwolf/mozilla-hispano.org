@@ -13,11 +13,11 @@ html{
 body {
     min-height: 100%;
     position: relative;
-	background-image: linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
-		background-image: -o-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
-		background-image: -moz-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
-		background-image: -webkit-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
-		background-image: -ms-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
+	background-image: -o-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
+	background-image: -moz-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
+	background-image: -webkit-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
+	background-image: -ms-linear-gradient(bottom, #FFFFFF 75%, #E7EDF1 100%);
+	background-image: linear-gradient(to bottom, #E7EDF1 5em, #FFFFFF 15em);
 	background-color: #FFF;
     background-repeat: no-repeat;
     color: #282828;
@@ -25,14 +25,14 @@ body {
 	font-family: 'Open Sans',sans-serif;
 	font-size: 0.62em;
 	text-align: inherit; /* Para evitar conflictos con el css de la documentacion (bookjive/main.css)*/
-    padding-bottom: 24em;
+    /*padding-bottom: 24em;*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
 /* Fonts */
-/* Importado en http://www.mozilla.org/tabzilla/media/css/tabzilla.css */
+/* Importado en //mozorg.cdn.mozilla.net/media/css/tabzilla-min.css */
 .open-sans {
 	font-family: 'Open Sans',sans-serif;
 }
@@ -63,8 +63,7 @@ video {
 }
 
 #lienzo {
-    overflow: hidden;
-	min-width: 980px;
+	overflow: hidden;
 	margin: 0px auto;
 }
 
@@ -72,7 +71,7 @@ video {
 	margin: auto;
 	position: relative;
 	text-align: left;
-	width: 980px;
+	max-width: 980px;
 	z-index: 1;
 }
 
@@ -87,11 +86,6 @@ a:hover, a:active {
 
 input.text {
 	border:1px solid #CCCCCC;
-}
-
-#tabzilla {
-	position: absolute;
-	right: 0;
 }
 
 /* Cabecera */
@@ -131,18 +125,10 @@ input.text {
 	#social {
 		margin-top: -20px;
 		width: 228px;
-		position: absolute;
-		right: 0;
+		float: right;
 	}
 
 	#social li {
-		/*
-		display: block;
-		float: right;
-		font-size: 1px;
-		height: 29px;
-		text-indent: -10000em;
-		*/
 		float: left;
 		width: 28px;
 		height: 29px;
@@ -204,6 +190,8 @@ input.text {
 	font-size: 1.2em;
 	height: 80px;
 	width: 540px;
+	float: left;
+	margin-right: 100px;
 }
 
 #menu ul {
@@ -211,9 +199,12 @@ input.text {
 	list-style-type: none;
 }
 
+#menu > ul > li {
+        display: table-cell;
+}
+
 #menu li {
 	display: inline-block;
-	float: left;
 	margin: 0;
 	padding: 0;
 	position: relative;
@@ -331,8 +322,6 @@ input.text {
 	font-size: 1.2em;
 	padding: 2em 0;
 	overflow: hidden;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
 #pie a {
@@ -344,7 +333,6 @@ input.text {
 }
 
 #pie #pie-contenido {
-	width: 960px;
 	margin: auto;
 }
 
@@ -413,7 +401,8 @@ input.text {
 }
 
 #barra p.boletin {
-	text-align: center;
+	margin-left: 14px;
+	font-size: 0.85rem;
 }
 
 #barra h3#destacado {
@@ -423,14 +412,22 @@ input.text {
 	padding-left: 79px;
 }
 
+#barra h3#descargas {
+	background: url("../img/downloads.png") no-repeat scroll 10px;
+	height: 57px;
+	line-height: 57px;
+	padding-left: 79px;
+}
+
 #barra dl dt {
-	font-size: 1.5em;
+	font-size: 0.95Rem;
 	margin: 1em 0 0.5em 1em;
 }
 
 #barra dl dd {
-	margin-left: 1.5em;
 	margin-top: -0.5em;
+	margin-left: 14px;
+	font-size: 0.85rem;
 }
 
 #barra ul {
@@ -446,7 +443,7 @@ input.text {
 #barra-small {
 	float: right;
 	margin-left: 65px;
-	width: 160px;
+	width: 155px;
 }
 
 #barra-small h2, #barra-small h3 {
@@ -562,3 +559,81 @@ input.text {
 #beast404re{left:231px;top:68px;}
 #error404-info > p{margin-bottom:0em;padding:0em;}
 #error404-info > ul{padding:0em;}
+
+/* Cookie Bar */
+#cookie-bar {background:#484848; line-height:30px; color:#eeeeee; text-align:center; padding:3px 0;}
+#cookie-bar.fixed {position:fixed; bottom:0; left:0; width:100%;}
+#cookie-bar p {margin:0; padding:0;font-size: 1.25em;}
+
+/* Forum Warning */
+#warning-foro {
+  padding: 20px 12.5%;
+  text-align: center;
+  line-height: 25px;
+  background-color: #D64720;
+  z-index: 999;
+  bottom: 0px;
+  position: fixed;
+  height: 4em;
+  font-size: 0.85rem;
+  color: #FFF;
+  transition: 0.5s ease height;
+}
+
+#warning-foro.off {
+  padding: 0 12.5%;
+  height: 0;
+}
+
+#warning-foro a {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+/* Tabzilla https://github.com/mozilla/tabzilla/ */
+
+#tabzilla {
+	right: 0;
+	float: right;
+	position: absolute;
+}
+
+#tabzilla a {
+	text-indent: 120%;
+	white-space: nowrap;
+	overflow: hidden;
+	background-image: url('../img/tabzilla-static.png');
+	background-repeat: no-repeat;
+	display: block;
+	height: 37px;
+	position: relative;
+	width: 147px;
+	z-index: 2;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),
+(min--moz-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3/2),
+(min-resolution: 1.5dppx) {
+	#tabzilla a {
+		background-image: url('../img/tabzilla-static-high-res.png');
+		-webkit-background-size: 147px 37px;
+		background-size: 147px 37px;
+	}
+}
+
+#tabzilla:before {
+	background-color: #484848;
+	content: '';
+	display: block;
+	height: 26px;
+	left: 28px;
+	position: absolute;
+	top: 0;
+	width: 88px;
+	z-index: 1;
+}
+
+html[dir='rtl'] #tabzilla {
+	float: left;
+}
